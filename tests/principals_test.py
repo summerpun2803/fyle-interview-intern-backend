@@ -9,6 +9,8 @@ def test_get_assignments(client, h_principal):
 
     assert response.status_code == 200
 
+    get_teachers(client , h_principal=h_principal)
+
     data = response.json['data']
     for assignment in data:
         assert assignment['state'] in [AssignmentStateEnum.SUBMITTED, AssignmentStateEnum.GRADED]
@@ -60,3 +62,11 @@ def test_regrade_assignment(client, h_principal):
 
     assert response.json['data']['state'] == AssignmentStateEnum.GRADED.value
     assert response.json['data']['grade'] == GradeEnum.B
+
+
+def get_teachers(client , h_principal):
+    response = client.get(
+        '/principal/teachers',
+        headers=h_principal
+    )
+    assert response.status_code == 200

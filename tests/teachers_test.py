@@ -62,7 +62,7 @@ def test_grade_assignment_bad_grade(client, h_teacher_1):
 
     assert data['error'] == 'ValidationError'
 
-
+"pass"
 def test_grade_assignment_bad_assignment(client, h_teacher_1):
     """
     failure case: If an assignment does not exists check and throw 404

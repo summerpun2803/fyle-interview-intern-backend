@@ -1,3 +1,4 @@
+"pass"
 def test_get_assignments_student_1(client, h_student_1):
     response = client.get(
         '/student/assignments',
@@ -10,7 +11,7 @@ def test_get_assignments_student_1(client, h_student_1):
     for assignment in data:
         assert assignment['student_id'] == 1
 
-
+"pass"
 def test_get_assignments_student_2(client, h_student_2):
     response = client.get(
         '/student/assignments',
@@ -38,7 +39,7 @@ def test_post_assignment_null_content(client, h_student_1):
 
     assert response.status_code == 400
 
-
+"pass"
 def test_post_assignment_student_1(client, h_student_1):
     content = 'ABCD TESTPOST'
 
